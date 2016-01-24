@@ -48,28 +48,35 @@
   <br>
   <div class="container">
     <div class="row">
-      <form class="" action="" method="" ng-submit="submit()" ng-show="isReplyFormOpen">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input class="form-control" type="text" ng-model="post.name" /><br />
+      <form name="post" class="simple-form" ng-submit="submit()" ng-show="isReplyFormOpen" novalidate>
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : post.name.$invalid && !post.name.$pristine }">
+            <label for="userName">User Name</label>
+            <input class="form-control"  type="text" ng-model="post.userName" required/>
+            <br>
+            <p ng-show="psot.userName.$invalid && !post.userName.$pristine" class="help-block">Username is required.</p>
           </div>
 
-          <div class="form-group">
-            <label for="title">title</label>
-            <input class="form-control" type="title" ng-model="post.title" /><br />
+          <!-- Title -->
+          <div class="form-group" ng-class="{ 'has-error' : post.title.$invalid && !post.title.$pristine }">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" ng-model="post.title" required /><br />
+            <p ng-show="psot.title.$invalid && !post.title.$pristine" class="help-block">Title is required.</p>
           </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-class="{ 'has-error' : post.description.$invalid && !post.description.$pristine }">
           <label> Description</label>
-          <textarea class="form-control" rows="3" name="description"  cols="40" ng-model="post.description"></textarea>
+          <textarea class="form-control" rows="3" cols="40" ng-model="post.description" required></textarea>
+          <p ng-show="psot.description.$invalid && !post.description.$pristine" class="help-block">Description is required.</p>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-class="{ 'has-error' : post.photoURL.$invalid && !post.photoURL.$pristine }">
           <label> Photo Url</label>
-          <input type="text" class="form-control" name="photoURL" id="photoURL" ng-model="post.photoURL">
+          <input type="text" class="form-control" id="photoURL" ng-model="post.photoURL" required>
+          <p ng-show="psot.photoURL.$invalid && !post.photoURL.$pristine" class="help-block">Description is required.</p>
         </div>
 
-        <button class="btn btn-success"type="submit" ng-click="update(user)" value="Save">Submit Post</button>
+        <button class="btn btn-success"type="submit" ng-disabled="post.$invalid">Submit Post</button>
 
       </form>
     </div>
