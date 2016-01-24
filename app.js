@@ -13,6 +13,7 @@ app.controller('myController', function($scope){
   $scope.submit = function(){
     if($scope.post){
       $scope.posts.push($scope.post);
+      $scope.post = {};
     }
   }
 });
