@@ -3,6 +3,7 @@ var app = angular.module('app', []);
 app.controller('myController', function($scope){
   $scope.hello = "hellow world";
   $scope.hidden = true;
+  $scope.posts = [];
   $scope.post = {};
 
   $scope.showForm = function(){
@@ -10,5 +11,8 @@ app.controller('myController', function($scope){
   }
 
   $scope.submit = function(){
+    if($scope.post){
+      $scope.posts.push($scope.post);
+    }
   }
 });
