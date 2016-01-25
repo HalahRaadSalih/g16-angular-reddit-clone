@@ -32,6 +32,10 @@ app.controller('myController', function($scope,$timeout){
           photoURL: 'https://placebear.com/100/100',
           userName: 'The Mother Goose',
           createdAt: Date.now(),
+          comments: [{
+              author: "Jane",
+              content: "blah blah blah blah"
+          }],
           vote: 0
       },
       {
@@ -40,6 +44,14 @@ app.controller('myController', function($scope,$timeout){
             photoURL: 'https://placebear.com/100/100',
             userName: 'The Mother Goose',
             createdAt: Date.now(),
+            comments: [{
+                author: "Billy Bob Joe",
+                content: "I'm a redneck"
+            },
+            {
+                author: "Obama",
+                content: "Hope, change, whatevs..."
+            }],
             vote: 0
         },
         {
@@ -48,6 +60,7 @@ app.controller('myController', function($scope,$timeout){
               photoURL: 'https://placebear.com/100/100',
               userName: 'The Mother Goose',
               createdAt: Date.now(),
+              comments: [],
               vote: 0
           },
           {
@@ -56,6 +69,7 @@ app.controller('myController', function($scope,$timeout){
                 photoURL: 'https://placebear.com/100/100',
                 userName: 'The Mother Goose',
                 createdAt: Date.now(),
+                comments: [],
                 vote: 0
             }];
   });
