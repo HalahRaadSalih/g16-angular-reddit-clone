@@ -137,7 +137,7 @@
                   <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                   <time title="{{ post.createdAt | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}">{{ post.createdAt | amCalendar }}</time> |
                   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                  <ng-pluralize count="{{ post.comments.length }}"" when='{
+                  <ng-pluralize count="{{ post.comments.length }}" when='{
                       "one": "{{ post.comments.length }} comment",
                       "other": "{{ post.comments.length }} comments"
                   }' ng-click="commentsOpen = !commentsOpen">
