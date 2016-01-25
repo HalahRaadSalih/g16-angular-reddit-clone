@@ -13,7 +13,7 @@ app.controller('myController', function($scope){
     }];
   // initial post is empty
   $scope.post = {
-
+    photoURL: "https://placebear.com/100/100"
   };
 
 
