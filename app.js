@@ -12,6 +12,19 @@ app.controller('myController', function($scope,$timeout){
 
   // $timeout is for on page load animation
   // popultaed with one post for testing
+  $scope.posts = [{
+        title: 'The Three Musketeers + 1 duck',
+        description: 'A story of love, death and fowl betrayal',
+        photoURL: 'https://placebear.com/100/100',
+        userName: 'The Mother Goose',
+        createdAt: Date.now(),
+        vote: 0,
+        comments : [{
+            author: "Billy Joe",
+            content: "This is awesome."
+        }]
+    }];
+
   $timeout(function(){
     $scope.posts = [{
           title: 'The Three Musketeers + 1 duck',
@@ -60,9 +73,11 @@ app.controller('myController', function($scope,$timeout){
         // get the current date
         post.createdAt = Date.now();
         // add post
+        post.comments = [];
         $scope.posts.push(post);
     }
     // reset post after adding
+    console.log("done");
     $scope.post = {
 
     };
@@ -71,12 +86,10 @@ app.controller('myController', function($scope,$timeout){
   //down voting
   $scope.downVote = function(post) {
       post.vote = post.vote - 1;
-      console.log(post.vote);
   }
   //up voting
   $scope.upVote = function(post) {
       post.vote = post.vote + 1;
-      console.log($scope.post.vote);
   }
   // parseing vote
   $scope.$watch('post.vote',function(val,old){
