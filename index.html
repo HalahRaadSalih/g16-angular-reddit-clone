@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Reddin Clone</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src='app.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- load momentJS (required for angular-moment) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+
+    <!-- load angular-moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.3/angular-moment.min.js"></script>
   </head>
   <body ng-controller="myController">
 
@@ -10,7 +21,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="/authors" id="navBarBrand">
-                <span class="glyphicon glyphicon glyphicon-book"></span>
+                <i class="fa fa-reddit-alien"></i>
                 Reddit Clone
             </a>
         </div>
@@ -104,15 +115,22 @@
               </div>
               <div class="row">
                   <p class="pull-right">
-                      {{ post.description }}
+                      By {{ post.userName}}
+
                   </p>
               </div>
               <div class="row">
                   <p>
-                     By {{ post.userName}}
+                     {{ post.description }}
                   </p>
               </div>
+              <div class="row">
+                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                  <time title="{{ post.createdAt | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}">{{ post.createdAt | amCalendar }}</time>
+                  |
 
+
+              </div>
           </div>
         </div>
         <br>
@@ -122,11 +140,6 @@
 
 
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
-  <script type="text/javascript" src='app.js'></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   </body>
 </html>

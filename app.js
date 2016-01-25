@@ -1,4 +1,4 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['angularMoment']);
 
 app.controller('myController', function($scope){
   $scope.hello = "hellow world";
@@ -7,11 +7,12 @@ app.controller('myController', function($scope){
   $scope.posts = [{
         title: 'The Three Musketeers + 1 duck',
         description: 'A story of love, death and fowl betrayal',
-        photoURL: 'http://thumbs.dreamstime.com/x/angry-duck-clipping-path-620949.jpg',
+        photoURL: 'https://placebear.com/100/100',
         userName: 'The Mother Goose',
         createdAt: Date.now(),
         vote: 0
     }];
+
   $scope.post = {
 
   };
@@ -24,8 +25,9 @@ app.controller('myController', function($scope){
   $scope.submit = function(post){
     if($scope.post){
         post.vote = 0;
+        post.createdAt = Date.now();
       $scope.posts.push(post);
-
+      console.log(post.createdAt);
     }
     $scope.post = {
 
