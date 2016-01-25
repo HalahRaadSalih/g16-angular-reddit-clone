@@ -36,7 +36,7 @@
 
         <form class="navbar-form navbar-left" role="search">
          <div class="form-group">
-           <input type="text" class="form-control" placeholder="Search">
+           <input type="search" class="form-control" placeholder="Search" ng-model="searchText">
          </div>
         </form>
         <!-- Dropdown -->
@@ -55,6 +55,7 @@
     </div>
   </nav>
   <br>
+  <!-- Sumit post form -->
   <div class="container">
     <div class="row">
       <form name="post" class="simple-form" ng-submit="submit(post)" ng-show="isReplyFormOpen" novalidate>
@@ -97,11 +98,11 @@
   <br>
   <!-- Posts -->
   <div class="container">
-    <div class="row" ng-repeat="post in posts track by $index">
+    <div class="row" ng-repeat="post in posts  | filter:searchText track by $index ">
       <div class="jumbotron">
         <div class="row" >
           <div class="col-md-4" >
-            <img src='{{post.photoURL}}'>
+            <img  src='{{post.photoURL}}'>
           </div>
 
           <div class="col-md-8">
