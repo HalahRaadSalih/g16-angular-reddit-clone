@@ -1,6 +1,8 @@
 var app = angular.module('app', ['angularMoment']);
 
 app.controller('myController', function($scope){
+  //posts initially ordered by title
+  $scope.sortBy = 'title';
   $scope.hidden = true;
   // popultaed with one post for testing
   $scope.posts = [{
@@ -51,5 +53,10 @@ app.controller('myController', function($scope){
        } else if (post.vote < 0) {
            return "red";
        }
+   }
+
+   $scope.orderPostsBy = function(item){
+     console.log(item);
+     $scope.sortBy = item;
    }
 });

@@ -45,9 +45,9 @@
             <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
              <ul class="dropdown-menu">
-               <li>Votes</li>
-               <li>Dates</li>
-               <li>Title</li>
+               <li ng-click="orderPostsBy('-vote')">Votes</li>
+               <li ng-click="orderPostsBy('createdAt')" >Dates</li>
+               <li ng-click="orderPostsBy('title')">Title</li>
              </ul>
            </li>
           </ul>
@@ -98,7 +98,7 @@
   <br>
   <!-- Posts -->
   <div class="container">
-    <div class="row" ng-repeat="post in posts  | filter:searchText track by $index ">
+    <div class="row" ng-repeat="post in posts | orderBy: sortBy | filter:searchText  track by $index ">
       <div class="jumbotron">
         <div class="row" >
           <div class="col-md-4" >
