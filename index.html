@@ -51,7 +51,7 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by {{sortBy}} <span class="caret"></span></a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by {{sortBy.display}} <span class="caret"></span></a>
                <ul class="dropdown-menu">
                  <li ng-click="orderPostsBy('-vote')">Votes</li>
                  <li ng-click="orderPostsBy('createdAt')" >Dates</li>
@@ -106,11 +106,11 @@
     <br>
     <!-- Posts -->
     <div class="container">
-      <div class="row" ng-repeat="post in posts | orderBy: sortBy | filter:searchText  track by $index ">
+      <div class="row" ng-repeat="post in posts | orderBy: sortBy.use | filter:searchText  track by $index ">
         <div class="jumbotron">
           <div class="row" >
             <div class="col-md-4" >
-              <img  src='{{post.photoURL}}'>
+              <img  ng-src='{{post.photoURL}}'>
             </div>
 
             <div class="col-md-8">
