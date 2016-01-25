@@ -1,9 +1,8 @@
 var app = angular.module('app', ['angularMoment']);
 
 app.controller('myController', function($scope){
-  $scope.hello = "hellow world";
   $scope.hidden = true;
-
+  // popultaed with one post for testing
   $scope.posts = [{
         title: 'The Three Musketeers + 1 duck',
         description: 'A story of love, death and fowl betrayal',
@@ -12,23 +11,23 @@ app.controller('myController', function($scope){
         createdAt: Date.now(),
         vote: 0
     }];
-
+  // initial post is empty
   $scope.post = {
 
   };
 
 
-  $scope.showForm = function(){
-     $scope.hidden = !$scope.hidden;
-  }
-
   $scope.submit = function(post){
     if($scope.post){
+        // set initial vote to zero
         post.vote = 0;
+        // get the current date
         post.createdAt = Date.now();
-      $scope.posts.push(post);
-      console.log(post.createdAt);
+        // add post
+        $scope.posts.push(post);
+        console.log(post.createdAt);
     }
+    // reset post after adding
     $scope.post = {
 
     };
@@ -44,8 +43,9 @@ app.controller('myController', function($scope){
   }
   $scope.$watch('post.vote',function(val,old){
       $scope.post.vote = parseInt(val);
-   });
-   $scope.getColor = function(post) {
+  });
+
+  $scope.getColor = function(post) {
        if (post.vote > 0) {
            return "green";
        } else if (post.vote < 0) {
