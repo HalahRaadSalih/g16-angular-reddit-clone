@@ -2,7 +2,10 @@ var app = angular.module('app', ['angularMoment','ngAnimate']);
 
 app.controller('myController', function($scope,$timeout){
   //posts initially ordered by title
-  $scope.sortBy = '-vote';
+  $scope.sortBy = {
+    display: 'Votes',
+     use:'-vote'
+  }
   // posts need to be empty for on page load animation
   $scope.posts = [];
   // $timeout is for on page load animation
@@ -89,7 +92,15 @@ app.controller('myController', function($scope,$timeout){
    }
    // ordering posts
    $scope.orderPostsBy = function(item){
-     console.log(item);
-     $scope.sortBy = item;
+     $scope.sortBy.use = item;
+     if(item === '-vote'){
+       $scope.sortBy.display = "Votes"
+     }
+     else if (item === 'createdAt') {
+       $scope.sortBy.display = "Date"
+     }
+     else{
+       $scope.sortBy.display = "Title"
+     }
    }
 });
