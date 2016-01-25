@@ -28,12 +28,13 @@
         <div class="">
 
         </div>
+         <!-- submit post -->
         <ul class="nav navbar-nav">
           <li>
               <button class="btn btn-default navbar-btn" ng-click="isReplyFormOpen = !isReplyFormOpen">+ Submit Post</button>
           </li>
         </ul>
-
+        <!-- Search -->
         <form class="navbar-form navbar-left" role="search">
          <div class="form-group">
            <input type="search" class="form-control" placeholder="Search" ng-model="searchText">
@@ -43,7 +44,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by {{sortBy}} <span class="caret"></span></a>
              <ul class="dropdown-menu">
                <li ng-click="orderPostsBy('-vote')">Votes</li>
                <li ng-click="orderPostsBy('createdAt')" >Dates</li>
@@ -89,7 +90,7 @@
         </div>
 
         <!-- Submit -->
-        <button class="btn btn-success" type="submit" ng-disabled="post.$invalid" value="Save">Submit Post</button>
+        <button class="btn btn-success" type="submit" ng-disabled="post.$invalid" value="Save" ng-click="isReplyFormOpen = !isReplyFormOpen">Submit Post</button>
 
       </form>
     </div>

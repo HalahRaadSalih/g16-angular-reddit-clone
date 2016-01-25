@@ -2,7 +2,7 @@ var app = angular.module('app', ['angularMoment']);
 
 app.controller('myController', function($scope){
   //posts initially ordered by title
-  $scope.sortBy = 'title';
+  $scope.sortBy = '-vote';
   $scope.hidden = true;
   // popultaed with one post for testing
   $scope.posts = [{
