@@ -1,0 +1,23 @@
+.ng-enter {
+  transition:0.4s ease-in-out;
+  opacity:0;
+}
+
+.ng-enter.ng-enter-active {
+  transition:0.4s ease-in-out;
+  opacity:1;
+}
+
+.ng-leave {
+  transition:0.4s ease-in-out;
+  opacity:1;
+}
+
+.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.ng-enter-stagger, .ng-leave-stagger {
+  transition-delay: 0.2s;
+  transition-duration:0;
+}
