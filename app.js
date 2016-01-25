@@ -25,9 +25,9 @@ app.controller('myController', function($scope){
         post.createdAt = Date.now();
         // add post
         $scope.posts.push(post);
-        console.log(post.createdAt);
     }
     // reset post after adding
+    console.log("done");
     $scope.post = {
 
     };
@@ -35,11 +35,9 @@ app.controller('myController', function($scope){
   }
   $scope.downVote = function(post) {
       post.vote = post.vote - 1;
-      console.log(post.vote);
   }
   $scope.upVote = function(post) {
       post.vote = post.vote + 1;
-      console.log($scope.post.vote);
   }
   $scope.$watch('post.vote',function(val,old){
       $scope.post.vote = parseInt(val);
