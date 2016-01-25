@@ -34,7 +34,7 @@ app.controller('myController', function($scope){
   }
   $scope.downVote = function(post) {
       post.vote = post.vote - 1;
-      console.log($scope.post.vote);
+      console.log(post.vote);
   }
   $scope.upVote = function(post) {
       post.vote = post.vote + 1;
@@ -43,4 +43,11 @@ app.controller('myController', function($scope){
   $scope.$watch('post.vote',function(val,old){
       $scope.post.vote = parseInt(val);
    });
+   $scope.getColor = function(post) {
+       if (post.vote > 0) {
+           return "green";
+       } else if (post.vote < 0) {
+           return "red";
+       }
+   }
 });

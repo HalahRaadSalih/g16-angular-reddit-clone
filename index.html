@@ -96,8 +96,9 @@
               <div class="row" >
                   <h3>
                       {{ post.title }} |
-<i class="fa fa-arrow-up" ng-click="upVote(post)" ></i>
-<i class="fa fa-arrow-down" ng-click="downVote(post)" ></i> {{ post.vote | number}}
+                      <i class="fa fa-arrow-up" ng-click="upVote(post)" ></i>
+                      <i class="fa fa-arrow-down" ng-click="downVote(post)" ></i>
+                      <span ng-style="{'color' : getColor(post)}">{{ post.vote | number}}</span>
 
                   </h3>
               </div>
