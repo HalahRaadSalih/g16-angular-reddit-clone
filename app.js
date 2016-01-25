@@ -9,7 +9,11 @@ app.controller('myController', function($scope){
         photoURL: 'https://placebear.com/100/100',
         userName: 'The Mother Goose',
         createdAt: Date.now(),
-        vote: 0
+        vote: 0,
+        comments : [{
+            author: "Billy Joe",
+            content: "This is awesome."
+        }]
     }];
   // initial post is empty
   $scope.post = {
@@ -24,6 +28,7 @@ app.controller('myController', function($scope){
         // get the current date
         post.createdAt = Date.now();
         // add post
+        post.comments = [];
         $scope.posts.push(post);
     }
     // reset post after adding
