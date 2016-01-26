@@ -92,31 +92,24 @@ app.controller('myController', function($scope,$timeout){
     }
     // reset post after adding
     console.log("done");
-    $scope.post = {
-
-    };
+    $scope.post = {};
 
   }
 
   // comment submission
   $scope.submitComment = function(formComments, post) {
-    // create a clone of post.comments to push the new comments to
-    var temp = post.comments.slice(0);
 
     tempComments = {
     author: formComments.author,
     content: formComments.content
     };
 
-    temp.push(tempComments)
-    // copy the temp comments to post.comments and delete temp
-    angular.copy(temp, post.comments);
+    post.comments.push(tempComments)
 
     // reset comments and author in form
     formComments.author = null;
     formComments.content = null;
   }
-
 
   //down voting
   $scope.downVote = function(post) {
