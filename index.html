@@ -75,7 +75,7 @@
               <label for="userName">User Name</label>
               <input class="form-control"  type="text" ng-model="post.userName" required/>
               <br>
-              <p ng-show="psot.userName.$invalid && !post.userName.$pristine" class="help-block">Username is required.</p>
+              <p ng-show="post.userName.$invalid && !post.userName.$pristine" class="help-block">Username is required.</p>
           </div>
 
           <!-- Title -->
@@ -162,11 +162,11 @@
               </div>
               <!-- Form to add comments -->
               <div class="row">
-                  <form class="form-inline" method="post" ng-submit="submitComment(comments, post)" name="comment" ng-show="commentFormOpen">
+                  <form class="form-inline" method="post" ng-submit="submitComment(post.comments, post)" name="addForm" ng-show="commentFormOpen">
                       <label for="name">Author</label>
-                      <input class="form-control" type="text" name="author" ng-model="comments.author" placeholder="author">
+                      <input class="form-control" type="text" name="author" ng-model="post.comments.author" placeholder="Author">
                       <label for="content">Text</label>
-                      <input class="form-control" type="text" name="content" placeholder="comment" ng-model="comments.content">
+                      <input class="form-control" type="text" name="content" placeholder="Comment" ng-model="post.comments.content">
                       <button class="btn btn-default" type="submit" name="button"  ng-click="commentFormOpen = !commentFormOpen; commentsOpen = !commentsOpen">Add Comment</button>
                   </form>
               </div>

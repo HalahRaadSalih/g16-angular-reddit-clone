@@ -13,7 +13,7 @@ app.controller('myController', function($scope,$timeout){
   // $timeout is for on page load animation
   // popultaed with one post for testing
   $scope.posts = [{
-        title: 'The Three Musketeers + 1 duck',
+        title: 'The Three Musketeers + 1 duck first',
         description: 'A story of love, death and fowl betrayal',
         photoURL: 'https://placebear.com/100/100',
         userName: 'The Mother Goose',
@@ -99,8 +99,22 @@ app.controller('myController', function($scope,$timeout){
   }
 
   // comment submission
-  $scope.submitComment = function(comments, post) {
-      post.comments.push(comments);
+  $scope.submitComment = function(formComments, post) {
+    // create a clone of post.comments to push the new comments to
+    var temp = post.comments.slice(0);
+
+    tempComments = {
+    author: formComments.author,
+    content: formComments.content
+    };
+
+    temp.push(tempComments)
+    // copy the temp comments to post.comments and delete temp
+    angular.copy(temp, post.comments);
+
+    // reset comments and author in form
+    formComments.author = null;
+    formComments.content = null;
   }
 
 
@@ -113,9 +127,9 @@ app.controller('myController', function($scope,$timeout){
       post.vote = post.vote + 1;
   }
   // parseing vote
-  $scope.$watch('post.vote',function(val,old){
-      $scope.post.vote = parseInt(val);
-  });
+  // $scope.$watch('post.vote',function(val,old){
+  //     $scope.post.vote = parseInt(val);
+  // });
 
   //up/down voting colors
   $scope.getColor = function(post) {
