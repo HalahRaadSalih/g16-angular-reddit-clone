@@ -167,7 +167,7 @@
                       <input class="form-control" type="text" name="author" ng-model="post.comments.author" placeholder="Author">
                       <label for="content">Text</label>
                       <input class="form-control" type="text" name="content" placeholder="Comment" ng-model="post.comments.content">
-                      <button class="btn btn-default" type="submit" name="button"  ng-click="commentFormOpen = !commentFormOpen; commentsOpen = !commentsOpen">Add Comment</button>
+                      <button class="btn btn-default" type="submit" name="button"  ng-click="commentFormOpen = !commentFormOpen; commentsOpen = areCommentsOpen(commentsOpen)">Add Comment</button>
                   </form>
               </div>
             </div>

@@ -152,4 +152,13 @@ app.controller('myController', function($scope,$timeout){
        $scope.sortBy.display = "Title"
      }
    }
+
+   // conditionally toggles comments
+   $scope.areCommentsOpen = function(commentsOpen) {
+       if (!commentsOpen) {
+           commentsOpen = true;
+       }
+       return commentsOpen;
+   }
+
 });
