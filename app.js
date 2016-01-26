@@ -97,6 +97,13 @@ app.controller('myController', function($scope,$timeout){
     };
 
   }
+
+  // comment submission
+  $scope.submitComment = function(comments, post) {
+      post.comments.push(comments);
+  }
+
+
   //down voting
   $scope.downVote = function(post) {
       post.vote = post.vote - 1;

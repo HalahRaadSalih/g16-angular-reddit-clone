@@ -148,16 +148,16 @@
               </div>
               <div class="row" ng-show="commentsOpen">
                   <br>
-                  <p ng-repeat="comment in post.comments">
+                  <p ng-repeat="comment in post.comments track by $index">
                       <strong>{{ comment.author}}</strong> - {{ comment.content }}
                   </p>
               </div>
               <div class="row">
-                  <form class="form-inline" method="post" ng-submit="submitComment(post)" name="comment" ng-show="commentFormOpen">
+                  <form class="form-inline" method="post" ng-submit="submitComment(comments, post)" name="comment" ng-show="commentFormOpen">
                       <label for="name">Author</label>
-                      <input class="form-control" type="text" name="author" ng-model="post.comments.author" placeholder="author">
-                      <label for="commentText">Text</label>
-                      <input class="form-control" type="text" name="commentText" placeholder="comment" ng-model="post.comments.content">
+                      <input class="form-control" type="text" name="author" ng-model="comments.author" placeholder="author">
+                      <label for="content">Text</label>
+                      <input class="form-control" type="text" name="content" placeholder="comment" ng-model="comments.content">
                       <button class="btn btn-default" type="submit" name="button">Add Comment</button>
                   </form>
               </div>
