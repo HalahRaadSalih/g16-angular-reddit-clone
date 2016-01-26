@@ -162,12 +162,16 @@
               </div>
               <!-- Form to add comments -->
               <div class="row">
-                  <form class="form-inline" method="post" ng-submit="submitComment(post.comments, post)" name="addForm" ng-show="commentFormOpen">
-                      <label for="name">Author</label>
-                      <input class="form-control" type="text" name="author" ng-model="post.comments.author" placeholder="Author">
-                      <label for="content">Text</label>
-                      <input class="form-control" type="text" name="content" placeholder="Comment" ng-model="post.comments.content">
-                      <button class="btn btn-default" type="submit" name="button"  ng-click="commentFormOpen = !commentFormOpen; commentsOpen = areCommentsOpen(commentsOpen)">Add Comment</button>
+                  <form class="form-inline" method="post" ng-submit="submitComment(post.comments, post)" name="addForm" ng-show="commentFormOpen" nonvalidate >
+                      <div class="form-group">
+                          <label for="name">Author</label>
+                          <input class="form-control" type="text" name="author" ng-model="post.comments.author" placeholder="Author" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="content">Text</label>
+                          <input class="form-control" type="text" name="content" placeholder="Comment" ng-model="post.comments.content" required>
+                      </div>
+                        <button class="btn btn-default" type="submit" name="button"  ng-click="commentFormOpen = !commentFormOpen; commentsOpen = areCommentsOpen(commentsOpen)" ng-disabled="addForm.$invalid">Add Comment</button>
                   </form>
               </div>
             </div>
